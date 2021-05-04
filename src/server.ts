@@ -3,7 +3,7 @@ import { Database } from './services/Database';
 import bodyParser from 'body-parser';
 import express from 'express'
 import userRouter from './contollers/User/router'
-import momentRouter from './contollers/Moments/router'
+import registrationRouter from './contollers/Registration/router'
 require('dotenv').config();
 import cors from 'cors'
 
@@ -43,7 +43,7 @@ export class Server {
         const PORT = 8000;
         this.app.get('/health-check', (req: any, res: any) => res.status(200).send({ status: 200, message: "hello!" }));
         this.app.use("/users", userRouter);
-        this.app.use("/moment", momentRouter)
+        this.app.use("/registration", registrationRouter)
         this.app.listen(PORT, () => {
             console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
         });
