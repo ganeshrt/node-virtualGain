@@ -1,5 +1,5 @@
-export interface IRegistrationModel {
-    createRegistration(
+export interface IApplicationModel {
+    createApplication(
         name: String,
         email: String,
         mobile: number,

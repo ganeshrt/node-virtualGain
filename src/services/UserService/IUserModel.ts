@@ -1,8 +1,12 @@
 export interface IUserModel {
-    createUser(
-        name: String,
+    createUser(name: String,
         email: String,
         password: String,
-        city: String,
+        mobile: number,
+        gender: string,
+        address: string,
+        state: string,
+        city: string,
+        dob: Date,
     ): Promise<any>;
 }

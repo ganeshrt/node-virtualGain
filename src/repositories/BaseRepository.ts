@@ -2,14 +2,24 @@ import { logger } from './../lib/logger';
 import { IUserModel } from './../services/UserService/IUserModel';
 import mongoose from 'mongoose';
 import User from './User/userModel'
+interface IstudentModel {
+    name: String,
+    email: String,
+    mobile: number,
+    gender: string,
+    address: string,
+    state: string,
+    city: string,
+    dob: Date,
+};
 export class BaseRepository {
 
     /**
      * insert
      */
-    public insert(email: String, password: String, name: String, city: String) {
+    public insert(data: IstudentModel) {
         logger("BaseRepository - insert ", {});
-        const user = new User({ email, password, name, city });
+        const user = new User({ ...data });
         return user.save().then(res => {
             return res;
         }).catch(err => {

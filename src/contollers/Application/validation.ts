@@ -1,5 +1,5 @@
 export default Object.freeze({
-    registration: {
+    application: {
         post: {
             email: {
                 in: ["body"],

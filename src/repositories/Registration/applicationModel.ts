@@ -12,5 +12,5 @@ const schema = new mongoose.Schema({
     dob: { type: String, required: true },
 });
 schema.plugin(uniqueValidator);
-const registrationSchema = mongoose.model('registration', schema);
-export default registrationSchema;
+const applicationSchema = mongoose.model('application', schema);
+export default applicationSchema;
