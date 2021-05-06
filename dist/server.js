@@ -9,7 +9,7 @@ const Database_1 = require("./services/Database");
 const body_parser_1 = __importDefault(require("body-parser"));
 const express_1 = __importDefault(require("express"));
 const router_1 = __importDefault(require("./contollers/User/router"));
-const router_2 = __importDefault(require("./contollers/Moments/router"));
+const router_2 = __importDefault(require("./contollers/Application/router"));
 require('dotenv').config();
 const cors_1 = __importDefault(require("cors"));
 class Server {
@@ -36,12 +36,12 @@ class Server {
             this.app.use(body_parser_1.default.urlencoded({ extended: true }));
         };
         this.start = () => {
-            const PORT = 8000;
+            // const PORT = 8000;
             this.app.get('/health-check', (req, res) => res.status(200).send({ status: 200, message: "hello!" }));
             this.app.use("/users", router_1.default);
-            this.app.use("/moment", router_2.default);
-            this.app.listen(PORT, () => {
-                console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+            this.app.use("/application", router_2.default);
+            this.app.listen(process.env.PORT, () => {
+                console.log(`⚡️[server]: Server is running at https://localhost:${process.env.PORT}`);
             });
         };
         this.app = express_1.default();

@@ -21,7 +21,7 @@ class UserController {
             const { email, password, name, city } = body;
             logger_1.logger("User Controller -Create User :::::::::", body);
             console.log(body, params);
-            return yield UserService_1.userService.createUser(email, password, name, city);
+            return yield UserService_1.userService.createUser(body);
         });
         this.getUserToken = ({ params, headers, body }) => __awaiter(this, void 0, void 0, function* () {
             const { email, password } = body;

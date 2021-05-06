@@ -11,24 +11,56 @@ exports.default = Object.freeze({
                     options: (email) => (email.length && email !== "" && typeof email === "string")
                 }
             },
-            password: {
+            dob: {
                 in: ["body"],
-                errorMessage: "password is empty",
+                errorMessage: "dob is empty",
                 isLength: {
-                    errorMessage: 'Password should be at least 7 chars long',
+                    errorMessage: 'dob should be at least 7 chars long',
                     // Multiple options would be expressed as an array
                     options: { min: 7 },
                 },
                 custom: {
-                    options: (password) => (password.length && password !== "" && typeof password === "string"),
+                    options: (dob) => (dob.length && dob !== "" && typeof dob === "string"),
                 }
             },
-            role: {
+            name: {
                 in: ["body"],
-                errorMessage: "role is empty",
+                errorMessage: "name is empty",
                 custom: {
-                    options: (role) => (role.length && role !== "" && typeof role === "string"),
-                    errorMessage: "role is bad format",
+                    options: (name) => (name.length && name !== "" && typeof name === "string"),
+                    errorMessage: "name is bad format",
+                }
+            },
+            gender: {
+                in: ["body"],
+                errorMessage: "gender is empty",
+                custom: {
+                    options: (gender) => (gender.length && gender !== "" && typeof gender === "string"),
+                    errorMessage: "gender is bad format",
+                }
+            },
+            address: {
+                in: ["body"],
+                errorMessage: "address is empty",
+                custom: {
+                    options: (address) => (address.length && address !== "" && typeof address === "string"),
+                    errorMessage: "address is bad format",
+                }
+            },
+            state: {
+                in: ["body"],
+                errorMessage: "state is empty",
+                custom: {
+                    options: (state) => (state.length && state !== "" && typeof state === "string"),
+                    errorMessage: "state is bad format",
+                }
+            },
+            city: {
+                in: ["body"],
+                errorMessage: "city is empty",
+                custom: {
+                    options: (city) => (city.length && city !== "" && typeof city === "string"),
+                    errorMessage: "city is bad format",
                 }
             }
         },

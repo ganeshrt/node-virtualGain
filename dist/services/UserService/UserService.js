@@ -23,9 +23,9 @@ class UserService {
         /**
          * createUser =
            =>*/
-        this.createUser = (email, password, name, city) => __awaiter(this, void 0, void 0, function* () {
-            logger_1.logger("User service - createUser :::::", { email, password, name, city });
-            return this.baseRepo.insert(email, password, name, city);
+        this.createUser = (data) => __awaiter(this, void 0, void 0, function* () {
+            logger_1.logger("User service - createUser :::::", Object.assign({}, data));
+            return this.baseRepo.insert(data);
         });
         /**
          * getUserrole

@@ -6,13 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseRepository = void 0;
 const logger_1 = require("./../lib/logger");
 const userModel_1 = __importDefault(require("./User/userModel"));
+;
 class BaseRepository {
     /**
      * insert
      */
-    insert(email, password, name, city) {
+    insert(data) {
         logger_1.logger("BaseRepository - insert ", {});
-        const user = new userModel_1.default({ email, password, name, city });
+        const user = new userModel_1.default(Object.assign({}, data));
         return user.save().then(res => {
             return res;
         }).catch(err => {

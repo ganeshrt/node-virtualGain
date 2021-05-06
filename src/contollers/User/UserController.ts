@@ -22,7 +22,7 @@ class UserController {
         const { email, password, name, city } = body;
         logger("User Controller -Create User :::::::::", body)
         console.log(body, params)
-        return await userService.createUser(email, password, name, city);
+        return await userService.createUser(body);
     }
 
     public getUserToken = async ({ params, headers, body }: any) => {

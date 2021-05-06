@@ -40,12 +40,12 @@ export class Server {
         this.app.use(bodyParser.urlencoded({ extended: true }))
     }
     start = () => {
-        const PORT = 8000;
+        // const PORT = 8000;
         this.app.get('/health-check', (req: any, res: any) => res.status(200).send({ status: 200, message: "hello!" }));
         this.app.use("/users", userRouter);
         this.app.use("/application", applicationRouter)
-        this.app.listen(PORT, () => {
-            console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
+        this.app.listen(process.env.PORT, () => {
+            console.log(`⚡️[server]: Server is running at https://localhost:${process.env.PORT}`);
         });
     }
 }

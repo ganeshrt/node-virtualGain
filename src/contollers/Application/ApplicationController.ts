@@ -22,11 +22,9 @@ class ApplicationController {
         return await applicationService.createApplication(body);
     }
 
-
     public updateApplication = async ({ params, headers, body }: any) => {
         const { id } = params;
         return await applicationService.updateApplication(id, body);
-
     }
 
     public deleteApplication = async ({ params, headers, body }: any) => {

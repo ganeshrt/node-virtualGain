@@ -1,4 +1,4 @@
-import { ApplicationRepository } from '../../repositories/application/applicationRepo';
+import { ApplicationRepository } from '../../repositories/Application/applicationRepo';
 import { logger } from '../../lib/logger';
 import { IApplicationModel } from './IApplicationModel';
 import jwt from 'jsonwebtoken'

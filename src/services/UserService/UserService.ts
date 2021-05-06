@@ -2,7 +2,19 @@ import { BaseRepository } from './../../repositories/BaseRepository';
 import { logger } from './../../lib/logger';
 import { IUserModel } from './IUserModel';
 import jwt from 'jsonwebtoken'
-require('dotenv').config()
+require('dotenv').config();
+interface IUser {
+
+    name: String;
+    email: String,
+    password: String,
+    mobile: number,
+    gender: string,
+    address: string,
+    state: string,
+    city: string,
+    dob: Date,
+}
 export class UserService implements IUserModel {
     private baseRepo = new BaseRepository();
 
@@ -16,11 +28,11 @@ export class UserService implements IUserModel {
     /**
      * createUser =
        =>*/
-    public createUser = async (email: String, password: String, name: String, city: String): Promise<any> => {
+    public createUser = async (data: IUser): Promise<any> => {
 
 
-        logger("User service - createUser :::::", { email, password, name, city });
-        return this.baseRepo.insert(email, password, name, city);
+        logger("User service - createUser :::::", { ...data });
+        return this.baseRepo.insert(data);
 
     }
 
